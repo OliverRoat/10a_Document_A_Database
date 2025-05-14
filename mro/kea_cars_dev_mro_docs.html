@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+            body {
+                margin: 5vw;
+                background: #fafafa;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            }
+            
+            h1, h2 {
+                font-family: Titillium Web, sans-serif;
+                color: #3b4151;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            table {
+                width: 100%;
+                margin-bottom: 15px;
+                border-collapse: collapse;
+                border-radius: 4px;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+                background: #ffffff;
+            }
+            
+            th, td {
+                font-size: 14px;
+                padding: 10px;
+                text-align: left;
+                font-family: Source Code Pro, monospace;
+                font-weight: 600;
+                color: #3b4151;
+                border-bottom: 1px solid rgba(59, 65, 81, .2);
+            }
+            
+            th {
+                font-weight: 700;
+                background: hsla(0, 0%, 100%, .8);
+            }
+            
+            tr:nth-child(even) {
+                background-color: rgba(97, 175, 254, .1);
+            }
+            
+            tbody tr:hover {
+                background: rgba(0, 0, 0, .02);
+            }
+        </style>
+        <title>kea_cars_dev - Docs</title>
+    </head>
+    <body>
+        <main>
+            <h1>kea_cars_dev</h1>
+    
+            <div class="database-table">
+        <h2 class="database-table-name">accessories</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(60)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>price</td><td>double unsigned</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">brands</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(60)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>logo_url</td><td>varchar(255)</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">car_purchase_view</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>car_id</td><td>char(36)</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>purchase_id</td><td>char(36)</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>sales_person_id</td><td>char(36)</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>customer_id</td><td>char(36)</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>is_past_deadline</td><td>tinyint(1)</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">cars</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>models_id</td><td>char(36)</td><td>MUL</td><td>models.id</td>
+                </tr>
+                
+                <tr>
+                    <td>colors_id</td><td>char(36)</td><td>MUL</td><td>colors.id</td>
+                </tr>
+                
+                <tr>
+                    <td>customers_id</td><td>char(36)</td><td>MUL</td><td>customers.id</td>
+                </tr>
+                
+                <tr>
+                    <td>sales_people_id</td><td>char(36)</td><td>MUL</td><td>sales_people.id</td>
+                </tr>
+                
+                <tr>
+                    <td>total_price</td><td>double unsigned</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>purchase_deadline</td><td>date</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">cars_has_accessories</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>cars_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>accessories_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">cars_has_insurances</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>cars_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>insurances_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">colors</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>price</td><td>double unsigned</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>red_value</td><td>tinyint unsigned</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>green_value</td><td>tinyint unsigned</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>blue_value</td><td>tinyint unsigned</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">customers</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>email</td><td>varchar(100)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>phone_number</td><td>varchar(30)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>first_name</td><td>varchar(45)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>last_name</td><td>varchar(45)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>address</td><td>varchar(255)</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">insurances</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>price</td><td>double unsigned</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">models</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>brands_id</td><td>char(36)</td><td>MUL</td><td>brands.id</td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(60)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>price</td><td>double unsigned</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>image_url</td><td>varchar(255)</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">models_has_colors</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>models_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>colors_id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">purchases</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>cars_id</td><td>char(36)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>date_of_purchase</td><td>date</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">sales_people</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>key</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>char(36)</td><td>PRI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>email</td><td>varchar(100)</td><td>UNI</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>hashed_password</td><td>varchar(130)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>first_name</td><td>varchar(50)</td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>last_name</td><td>varchar(50)</td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    </div>
+            </main> 
+            <br><br>
+            <footer>Powered by MRO</footer>
+        </body>
+        </html>

@@ -1,0 +1,334 @@
+{
+    "schema": [
+        {
+            "table": "accessories",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "name",
+                    "type": "varchar(60)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "price",
+                    "type": "double unsigned"
+                }
+            ]
+        },
+        {
+            "table": "brands",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "name",
+                    "type": "varchar(60)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "logo_url",
+                    "type": "varchar(255)"
+                }
+            ]
+        },
+        {
+            "table": "car_purchase_view",
+            "columns": [
+                {
+                    "field": "car_id",
+                    "type": "char(36)"
+                },
+                {
+                    "field": "purchase_id",
+                    "type": "char(36)"
+                },
+                {
+                    "field": "sales_person_id",
+                    "type": "char(36)"
+                },
+                {
+                    "field": "customer_id",
+                    "type": "char(36)"
+                },
+                {
+                    "field": "is_past_deadline",
+                    "type": "tinyint(1)"
+                }
+            ]
+        },
+        {
+            "table": "cars",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "models_id",
+                    "type": "char(36)",
+                    "key": "MUL",
+                    "keyto": [
+                        "models.id"
+                    ],
+                    "keyTo": [
+                        "models.id"
+                    ]
+                },
+                {
+                    "field": "colors_id",
+                    "type": "char(36)",
+                    "key": "MUL",
+                    "keyto": [
+                        "colors.id"
+                    ],
+                    "keyTo": [
+                        "colors.id"
+                    ]
+                },
+                {
+                    "field": "customers_id",
+                    "type": "char(36)",
+                    "key": "MUL",
+                    "keyto": [
+                        "customers.id"
+                    ],
+                    "keyTo": [
+                        "customers.id"
+                    ]
+                },
+                {
+                    "field": "sales_people_id",
+                    "type": "char(36)",
+                    "key": "MUL",
+                    "keyto": [
+                        "sales_people.id"
+                    ],
+                    "keyTo": [
+                        "sales_people.id"
+                    ]
+                },
+                {
+                    "field": "total_price",
+                    "type": "double unsigned"
+                },
+                {
+                    "field": "purchase_deadline",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "table": "cars_has_accessories",
+            "columns": [
+                {
+                    "field": "cars_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "accessories_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                }
+            ]
+        },
+        {
+            "table": "cars_has_insurances",
+            "columns": [
+                {
+                    "field": "cars_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "insurances_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                }
+            ]
+        },
+        {
+            "table": "colors",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "name",
+                    "type": "varchar(45)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "price",
+                    "type": "double unsigned"
+                },
+                {
+                    "field": "red_value",
+                    "type": "tinyint unsigned"
+                },
+                {
+                    "field": "green_value",
+                    "type": "tinyint unsigned"
+                },
+                {
+                    "field": "blue_value",
+                    "type": "tinyint unsigned"
+                }
+            ]
+        },
+        {
+            "table": "customers",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "email",
+                    "type": "varchar(100)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "phone_number",
+                    "type": "varchar(30)"
+                },
+                {
+                    "field": "first_name",
+                    "type": "varchar(45)"
+                },
+                {
+                    "field": "last_name",
+                    "type": "varchar(45)"
+                },
+                {
+                    "field": "address",
+                    "type": "varchar(255)"
+                }
+            ]
+        },
+        {
+            "table": "insurances",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "name",
+                    "type": "varchar(45)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "price",
+                    "type": "double unsigned"
+                }
+            ]
+        },
+        {
+            "table": "models",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "brands_id",
+                    "type": "char(36)",
+                    "key": "MUL",
+                    "keyto": [
+                        "brands.id"
+                    ],
+                    "keyTo": [
+                        "brands.id"
+                    ]
+                },
+                {
+                    "field": "name",
+                    "type": "varchar(60)"
+                },
+                {
+                    "field": "price",
+                    "type": "double unsigned"
+                },
+                {
+                    "field": "image_url",
+                    "type": "varchar(255)"
+                }
+            ]
+        },
+        {
+            "table": "models_has_colors",
+            "columns": [
+                {
+                    "field": "models_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "colors_id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                }
+            ]
+        },
+        {
+            "table": "purchases",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "cars_id",
+                    "type": "char(36)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "date_of_purchase",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "table": "sales_people",
+            "columns": [
+                {
+                    "field": "id",
+                    "type": "char(36)",
+                    "key": "PRI"
+                },
+                {
+                    "field": "email",
+                    "type": "varchar(100)",
+                    "key": "UNI"
+                },
+                {
+                    "field": "hashed_password",
+                    "type": "varchar(130)"
+                },
+                {
+                    "field": "first_name",
+                    "type": "varchar(50)"
+                },
+                {
+                    "field": "last_name",
+                    "type": "varchar(50)"
+                }
+            ]
+        }
+    ]
+}
